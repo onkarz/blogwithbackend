@@ -1,0 +1,54 @@
+<body>
+  <form>
+    <div *ngIf="blog" class="wrapper">
+      <div class="title">Update Blog</div>
+      <form [formGroup]="blogForm">
+        <div class="field">
+          <input
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="blog.title"
+            type="text"
+            required
+          />
+          <label>Title</label>
+        </div>
+        <div class="field">
+          <input
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="blog.description"
+            type="text"
+            required
+          />
+          <label>Description</label>
+        </div>
+
+        <div class="field">
+          <input
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="blog.category"
+            type="text"
+            required
+          />
+          <label>Category</label>
+        </div>
+        <div class="field">
+          <input
+            type="file"
+            accept="/image/*"
+            (change)="onFileSelected($event)"
+          />
+          <label>Select image for blog</label>
+
+          <img
+            *ngIf="blog.imageUrl"
+            [src]="blog.imageUrl"
+            style="height: 100px; width: 100px"
+          />
+        </div>
+        <div (click)="updateBlog()" class="field">
+          <input type="submit" value="Update" />
+        </div>
+      </form>
+    </div>
+  </form>
+</body>

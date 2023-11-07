@@ -1,0 +1,40 @@
+<body>
+  <form>
+    <div class="wrapper">
+      <div class="title">Login Form</div>
+      <form [formGroup]="loginForm">
+        <div class="field">
+          <input
+            formControlName="email"
+            [(ngModel)]="email"
+            type="text"
+            required
+          />
+          <label>Email Address</label>
+        </div>
+        <div class="field">
+          <input
+            formControlName="password"
+            [(ngModel)]="password"
+            type="password"
+            required
+          />
+          <label>Password</label>
+        </div>
+        <div class="content">
+          <div class="checkbox">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Remember me</label>
+          </div>
+          <div class="pass-link">
+            <a href="#">Forgot password?</a>
+          </div>
+        </div>
+        <div (click)="userSignIn()" class="field">
+          <input type="submit" value="Login" />
+        </div>
+        <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+      </form>
+    </div>
+  </form>
+</body>

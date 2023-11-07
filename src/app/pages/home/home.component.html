@@ -1,0 +1,83 @@
+<!-- <body>
+  <div class="card-container">
+    <div *ngFor="let blog of allBlogs" class="cards">
+      <img src="{{ blog.imageUrl }}" alt="9qvWEF.jpeg" class="model-picture" />
+      <h2 class="type">{{ blog.title }}</h2>
+      <h1 class="card-title">{{ blog.category }}</h1>
+      <p class="description">{{ blog.description }}</p>
+      <div class="shopping-container">
+        <h3 class="price">{{ blog.author }}</h3>
+        <button (click)="likeBlog(blog._id)" class="basket-button">
+          <i class="fa-sharp fa-solid fa-basket-shopping"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</body> -->
+
+<!-- Topic Cards -->
+<div id="cards_landscape_wrap-2">
+  <div class="container">
+    <div
+      style="margin-top: 50% !important"
+      *ngIf="showLoader"
+      class="spinner-border"
+      style="width: 3rem; height: 3rem"
+      role="status"
+    ></div>
+    <div class="row">
+      <div
+        *ngFor="let blog of allBlogs"
+        class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+      >
+        <div style="height: 490px !important" class="card-flyer">
+          <div class="text-box">
+            <div class="image-box">
+              <img (click)="view(blog._id)" src="{{ blog.imageUrl }}" alt="" />
+            </div>
+            <div class="text-container">
+              <h6>{{ blog.title }}</h6>
+              <p style="text-overflow: ellipsis">{{ blog.description }}</p>
+
+              <span style="font-size: 18px; font-weight: bold; color: black">{{
+                blog.author
+              }}</span>
+
+              <div style="display: flex">
+                <p
+                  (click)="likeBlog(blog._id)"
+                  style="
+                    font-size: 12px;
+                    width: 50%;
+                    cursor: pointer;
+                    border: 1px solid gray;
+                    font-weight: bold;
+                  "
+                >
+                  {{
+                    blog.likes?.includes(loggedInUserId) ? "unlike" : "likes"
+                  }}
+                </p>
+
+                <br />
+
+                <p
+                  style="
+                    font-size: 12px;
+                    width: 50%;
+                    cursor: pointer;
+                    border: 1px solid gray;
+                    font-weight: bold;
+                  "
+                >
+                  {{ blog.category }}
+                </p>
+              </div>
+              <p>{{ blog.likes.length }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

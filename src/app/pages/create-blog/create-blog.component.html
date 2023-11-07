@@ -1,0 +1,54 @@
+<body>
+  <form>
+    <div class="wrapper">
+      <div class="title">Create Blog</div>
+      <form [formGroup]="blogForm">
+        <div class="field">
+          <input
+            formControlName="title"
+            [(ngModel)]="title"
+            type="text"
+            required
+          />
+          <label>Title</label>
+        </div>
+        <div class="field">
+          <input
+            formControlName="description"
+            [(ngModel)]="description"
+            type="text"
+            required
+          />
+          <label>Description</label>
+        </div>
+
+        <div class="field">
+          <input
+            formControlName="category"
+            [(ngModel)]="category"
+            type="text"
+            required
+          />
+          <label>Category</label>
+        </div>
+        <div class="field">
+          <input
+            type="file"
+            accept="/image/*"
+            (change)="onFileSelected($event)"
+          />
+          <label>Select image for blog</label>
+
+          <img
+            *ngIf="imageUrl"
+            [src]="imageUrl"
+            style="height: 100px; width: 100px"
+          />
+        </div>
+        <div (click)="createBlog()" class="field">
+          <input type="submit" value="Create" />
+        </div>
+      </form>
+    </div>
+  </form>
+</body>

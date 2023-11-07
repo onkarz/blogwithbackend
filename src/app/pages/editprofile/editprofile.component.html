@@ -1,0 +1,47 @@
+<body>
+  <div *ngIf="userDetails" class="wrapper">
+    <div class="title">Edit Profile</div>
+    <form>
+      <div [formGroup]="registerForm" class="field">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="userDetails.firstname"
+          type="text"
+          required
+        />
+        <label>First Name</label>
+      </div>
+
+      <div class="field">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="userDetails.lastname"
+          type="text"
+          required
+        />
+        <label>Last Name</label>
+      </div>
+      <div class="field">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="userDetails.email"
+          type="email"
+          required
+        />
+        <label>Email</label>
+      </div>
+      <div class="field">
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          [(ngModel)]="userDetails.password"
+          type="password"
+          required
+        />
+        <label>Password</label>
+      </div>
+      <div (click)="updateUserProfile()" class="field">
+        <input type="submit" value="Update" />
+      </div>
+    </form>
+  </div>
+</body>

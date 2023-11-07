@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row height d-flex justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div style="margin-top: 25px; margin-bottom: 25px;" class="form">
+        <i class="fa fa-search"></i>
+        <input
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+          class="form-control form-input"
+          placeholder="Search blogs"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<body>
+  <div id="cards_landscape_wrap-2">
+    <div class="container">
+      <div *ngIf="showLoader" class="spinner-border" role="status">
+
+      </div>
+      <div>
+        <h2 *ngIf="showText">Search any blogs...</h2>
+      </div>
+      <div *ngIf="searchResults" class="row">
+        <div
+          *ngFor="let blog of searchResults"
+          class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+        >
+          <div class="card-flyer">
+            <div class="text-box">
+              <div class="image-box">
+                <img
+                  (click)="view(blog._id)"
+                  src="{{ blog.imageUrl }}"
+                  alt=""
+                />
+              </div>
+              <div class="text-container">
+                <h6>{{ blog.title }}</h6>
+                <p style="text-overflow: ellipsis">{{ blog.description }}</p>
+
+                <span
+                  style="font-size: 18px; font-weight: bold; color: black"
+                  >{{ blog.author }}</span
+                >
+
+                <div style="display: flex">
+                 
+
+                  <p
+
+                    style="
+                      font-size: 12px;
+                      width: 50%;
+                      cursor: pointer;
+                      border: 1px solid gray;
+                      font-weight: bold;
+                    "
+                  >
+                    {{ blog.category }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

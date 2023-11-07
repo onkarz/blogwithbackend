@@ -1,0 +1,57 @@
+<div class="landing">
+  <div class="profile">
+    <div class="left">
+      <div class="img">
+        <img
+          src="https://i.postimg.cc/9wbwLtkT/avatar-05.png"
+          alt="avatar-05"
+        />
+      </div>
+      <p class="level">{{ userEmail }}</p>
+      <br>
+      <h4 style="color: red; cursor: pointer;" (click)="editProfile(userId)">Edit Profile</h4>
+    </div>
+    <div *ngIf="userData" class="right">
+      <h3>{{ firstName }} {{ lastName }}</h3>
+      <p class="desc">
+        Lorem ipsum dolor sit, amet consectetur Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Quaerat provident numquam quisquam magni
+        libero atque dolorum iste voluptate facere adipisci rerum, mollitia
+        quibusdam. Quisquam quia, quis voluptates exercitationem sed
+        eos.adipisicing elit. Nihil, animi adipisci eius nostrum ducimus ipsum
+        mollitia enim quibusdam facilis iusto quas numquam quaerat eaque
+        laborum! Ipsam odio blanditiis ipsa! Magni?
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="cards_landscape_wrap-2">
+  <div class="container">
+    <div class="row">
+      <div
+        *ngFor="let blog of myBlogs"
+        class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+      >
+        <div class="card-flyer">
+          <div class="text-box">
+            <div class="image-box">
+              <img (click)="view(blog._id)" src="{{ blog.imageUrl }}" alt="" />
+            </div>
+            <div class="text-container">
+              <h6>{{ blog.title }}</h6>
+              <p>{{ blog.description }}</p>
+
+              <div style="display: flex; justify-content: space-between">
+                <span (click)="editBlog(blog._id)" style="font-weight: bold"
+                  >Edit</span
+                >
+                <span style="color: red; font-weight: bold">Delete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
